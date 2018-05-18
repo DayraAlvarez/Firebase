@@ -33,6 +33,10 @@ firebaseIdeasRef.on("child_added", function(snapshot) {
   addIdea(idea, snapshot.key);
 });
 
+firebaseIdeasRef.on("child_removed", function(snapshot) {
+document.getElementById(snapshot.key).remove();
+});
+
 function addIdea(idea,id){
     var newIdeaElement =document.createElement('p');
     newIdeaElement.textContent = idea;
